@@ -1,0 +1,110 @@
+<%- include('../partials/header.ejs')%>
+    <main>
+
+        <section>
+            <div class="container mt-4">
+
+                <div class="row">
+                    <div class="col-md-5">
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                    </div>
+                    <div class="col-md-8">
+                        <!-- delete school -->
+                          <button type="button" class="btn btn-default btn-outline-danger py-1  btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal" data-bs-whatever="Item Name" style="border-radius: 18px;">Delete <%=edit.schoolName%> <i
+                                    class="fa fa-trash" aria-hidden="true"></i></button>
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Want To Delete
+                                            <%=edit.schoolName%>?
+                                        </h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body form form-horizontal">
+                                        <form action="/school/delete/<%=edit._id%>" method="post" class="">
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <button type="submit"
+                                                class="btn btn-danger btn-sm col-md-4">Delete</i></button>
+                                            <p class="btn btn-primary btn-sm col-md-4"
+                                                data-bs-dismiss="modal">Cancel</p>
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                         <br> <br><br>
+                         <!-- edit school -->
+                        <b>
+                            <p class="lead h6">Edit <%=edit.schoolName%></p>
+                        </b>
+                        <hr class="col-md-8">
+                        <div class="row ">
+                            <form action="/school/<%=edit._id%>" method="POST">
+                                <input type="hidden" name="_method" value="PUT">
+                                <!-- school category -->
+                                <div class="row col-md-8">
+                                    <div class="input-group">
+                                        <input type="text" name="schoolName" id="schoolName"
+                                            class="form-control form-control-sm" placeholder="School Name" required value="<%=edit.schoolName%>">
+                                    </div>
+                                </div>
+                                <br>
+                                <!-- school location -->
+                                <div class="row col-md-8">
+                                    <div class="input-group">
+                                        <input type="text" name="location" id="location"
+                                            class="form-control form-control-sm" placeholder="School Location" required value="<%=edit.location%>">
+                                    </div>
+                                </div>
+                                <br>
+                                <!-- school category -->
+                                <div class="row col-md-8">
+                                    <fieldset class="form-group ">
+                                        <select class="form-control form-control-sm" name="category" id="category"
+                                            required>
+                                            <option value="-1">--Select Category--</option>
+                                            <option value="Boys">Boys School</option>
+                                            <option value="Girls">Girls School</option>
+                                            <option value="Mixed">Mixed School</option>
+                                        </select>
+                                    </fieldset>
+                                </div>
+                                <br>
+                                <!-- schooll description -->
+                                <div class="row col-md-8">
+                                    <div class="form-group">
+                                        <textarea name="description" id="description" cols="30" rows="4"
+                                            class="form-control form-control-sm outline-dark"
+                                            placeholder="School Description" required><%=edit.description%></textarea>
+                                    </div>
+                                </div>
+                                <!-- Decision -->
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <i><input type="submit" value="Save"
+                                                class="btn btn-primary  btn-sm col-md-2 py-1"></i>
+                                        <a href="/school/<%=edit._id%>" class="btn btn-danger  btn-sm col-md-2 py-1">Cancel</a>
+                                    </div>
+                                </div>
+                                <hr class="col-md-8">
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <!-- empty -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <%- include('../partials/footer.ejs')%>

@@ -1,0 +1,48 @@
+<div class="card">
+    <div class="card-body">
+      <p>Upload A Resource</p>
+      <hr>
+      <form action="/resources/files/upload" method="post" enctype="multipart/form-data"> 
+          <select name="session" id="session" class="form-select form-select-sm" aria-label=".session">
+              <option value="-1">--Select Session--</option>
+              <option value="April">April Session</option>
+              <option value="August">August Session</option>
+              <option value="December">December Session</option>
+          </select>
+          <br>
+          <select name="class" id="class" class="form-select form-select-sm" aria-label="class">
+              <option value="-1">--Select Form--</option>
+            <option value="Form1">Form 1</option>
+            <option value="Form2">Form 2</option>
+            <option value="Form3">Form 3</option>
+            <option value="Form4">Form 4</option>
+          </select>
+          <br>
+          <select name="subject" id="subject" class="form-select form-select-sm" aria-label="subject">
+            <option value="-1">--Select Subject--</option>
+          <option value="Mathematics">Mathematics</option>
+          <option value="Kiswahili">Kiswahili</option>
+          <option value="English">English</option>
+          <option value="Chemistry">Chemistry</option>
+          <option value="Biology">Biology</option>
+          <option value="Physics">Physics</option>
+          <option value="Geography">Geography</option>
+          <option value="History">History</option>
+          <option value="Agriculture">Agriculture</option>
+          <option value="BusinessStudies">Business Studies</option>
+          <option value="CRE">C.R.E</option>
+        </select>
+        <!-- postedby -->
+        <input type="hidden" name="postedby" id="postedby" class="form-control form-control-sm" value="<%post%>">
+
+        <br>
+          <div class="mb-3">
+            <label for="File" class="form-label">Upload a File</label>
+            <input class="form-control form-control-sm py-1" type="file" id="File" name="file" multiple>
+          </div>
+        <hr>
+     <button class="btn btn-sm py-1 btn-primary" type="submit" translate="yes">Upload</button>
+     <a class="btn btn-danger btn-sm py-1" href="/resources/resources">Cancel</a>
+      </form>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+<%- include('../partials/header.ejs')%>
+    <div class="container">
+        <div class="row g-0">
+            <div class="col-lg-12">
+                <br>
+                <button type="button" class="btn btn-primary py-1  btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                    data-bs-whatever="Item Name">Add Item</button>
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Add An Item</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <label for="item" class="col-form-label">Item Name</label>
+                                        <input type="text" class="form-control form-control-sm" id="item" name="item"  placeholder="Item Name...">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="item_unit" class="col-form-label">Item Units: i.e kgs,Ltrs,etc</label>
+                                        <input type="text" class="form-control form-control-sm" id="item_unit" name="item_unit" placeholder="Item units...">
+
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal">Cancel</button>
+                                <button type="button" class="btn btn-primary btn-sm">Add Item</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+        <div class="row g-0">
+
+            <%- include('../partials/items.ejs')%>
+                <%- include('../partials/distribution.ejs')%>
+
+        </div>
+    </div>
+    <script>
+        var exampleModal = document.getElementById('exampleModal')
+        exampleModal.addEventListener('show.bs.modal', function (event) {
+            // Button that triggered the modal
+            var button = event.relatedTarget
+            // Extract info from data-bs-* attributes
+            var recipient = button.getAttribute('data-bs-whatever')
+            // If necessary, you could initiate an AJAX request here
+            // and then do the updating in a callback.
+            //
+            // Update the modal's content.
+            var modalTitle = exampleModal.querySelector('.modal-title')
+            var modalBodyInput = exampleModal.querySelector('.modal-body input')
+
+            modalTitle.textContent = 'Add An Item'
+        })
+    </script>
+    <%- include('../partials/footer.ejs')%>

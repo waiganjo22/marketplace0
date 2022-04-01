@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Asante Project DashBoard</title>
+	<!-- Meta Tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="author" content="Asante Project">
+	<!-- Google Font -->
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link
+		href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&family=Rubik:wght@400;500;700&display=swap"
+		rel="stylesheet">
+
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" type="text/css"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	<!-- Theme CSS -->
+	<link id="style-switch" rel="stylesheet" type="text/css" href="/style/style.css">
+	
+		<!-- ckeditor -->
+	<script src="https://cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script>
+</head>
+
+<body class="bg-light">
+	<!-- =======================
+Header START -->
+	<header class="navbar-light navbar-sticky header-static mt-4">
+		<div class="border-bottom border-2 border-primary opacity-1"></div>
+		<!-- Logo Nav START -->
+		<nav class="navbar navbar-expand-lg">
+			<div class="container">
+				<!-- Logo START -->
+				<a class="navbar-brand" href="">
+					Asante Project
+				</a>
+				<!-- Logo END -->
+				<!-- Responsive navbar toggler -->
+				<button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
+					data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="text-body h6 d-none d-sm-inline-block">Menu</span>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<!-- Main navbar START -->
+				<div class="collapse navbar-collapse" id="navbarCollapse">
+					<ul class="navbar-nav navbar-nav-scroll mx-auto">
+
+						<!-- Nav school -->
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle active" href="#" id="schoolMenu"
+								data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Schools</a>
+							<ul class="dropdown-menu" aria-labelledby="schoolMenu">
+								<ul>
+										<%- include('./addSchool.ejs')%>
+								</ul>
+								<hr>
+								<%school.forEach(function(school){%>
+									<li> <a class="dropdown-item " href="/school/<%=school._id%>">
+											<%=school.schoolName%>
+										</a></li>
+									<%})%>
+							</ul>
+						</li>
+
+						<!-- Nav students -->
+						<li class="nav-item"><a class="nav-link" href="/student/view">Students</a></li>
+
+						<!-- Nav sms -->
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="studentsMenu" data-bs-toggle="dropdown"
+								aria-haspopup="true" aria-expanded="false">SMS</a>
+							<ul class="dropdown-menu" aria-labelledby="studentsMenu">
+								<li> <a class="dropdown-item" href="/sms/singlesms">Single SMS</a></li>
+								<li> <a class="dropdown-item" href="/sms/schoolsms">School SMS</a></li>
+								<li> <a class="dropdown-item" href="/sms/location">Location SMS</a></li>
+								
+							</ul>
+						</li>
+						<!-- distribution -->
+						<li class="nav-item"> <a class="nav-link" href="/distributions/new">Distributions</a></li>
+
+						<!-- Nav Student Resources-->
+						<li class="nav-item"><a class="nav-link" href="/resources/resources">Resources</a></li>
+						<!-- users -->
+						<li class="nav-item"> <a class="nav-link" href="/user/view/users">Users</a></li>
+
+
+					</ul>
+				</div>
+				<!-- Nav right START -->
+				<div class="nav flex-nowrap align-items-center">
+					<li class="nav-item"><a class="nav-link" href="/logout">(log out)</a></li>
+
+				</div>
+		</nav>
+		<hr class="col-md-12 text-primary mb-0 mt-n3">
+	</header>

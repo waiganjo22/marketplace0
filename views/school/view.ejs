@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Theme CSS -->
+  <link id="style-switch" rel="stylesheet" type="text/css" href="http://localhost:4000/style/style.css">
+  <!-- data table -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css">
+  <!-- Title -->
+  <title><%=schldata.schoolName%></title>
+</head>
+
+<body class="bg-light">
+  <%- include('../partials/schoolnav')%>
+    <div class="border-bottom border-2 border-primary opacity-1"></div>
+    <br><br>
+    <div class="container card-body card">
+      <div class="row align-items-center">
+
+        <section class="pt-4 pt-md-11">
+          <section class="py-2">
+            <div class="container">
+
+              <div class="row g-0">
+                <a href="/dashboard" class="btn btn-danger btn-sm py-1" style="width: 150px;">Back To Dashboard</a>
+                <a href="/school/<%=schldata._id%>/addstudent" class="btn btn-primary btn-sm py-1"
+                  style="width: 150px;">Add Student</a>
+                <br>
+              </div>
+              <br>
+              <div class="row g-0">
+                <div class="col-12 bg-primary-soft p-2 rounded">
+                  <div class="d-sm-flex align-items-center text-center text-sm-start">
+                    <!-- Title -->
+                    <div class="me-3">
+                      <span class="badge bg-primary p-2 px-3">Description:</span>
+                    </div>
+                    <!-- Slider -->
+                    <%=schldata.description%>
+                  </div>
+                </div>
+              </div> <!-- Row END -->
+              <!-- students-->
+              <section class="py-8 py-md-11 border-bottom">
+                <div class="row">
+                  <div class="col-md-8">
+                    <%- include('../partials/sort.ejs')%>
+
+                  </div>
+                </div>
+              </section>
+            </div>
+          </section>
+        </section>
+      </div> <!-- / .row -->
+    </div> <!-- / .container -->
+    <br><br>
+    <%- include('../partials/footer.ejs')%>
+
+      <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+      <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+      <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script>
+      <script>
+        $(document).ready(function () {
+          $('#table').DataTable();
+        });
+      </script>
+</body>
+
+</html>

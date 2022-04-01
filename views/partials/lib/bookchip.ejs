@@ -1,0 +1,46 @@
+<div id="kt_content_container" class="container-fluid">
+    <!--begin::Row-->
+    <div class="row g-5 g-xxl-10">
+        <!--begin::Col-->
+        <div class="col-xxl-4 mb-xxl-10">
+            <!--begin::Card widget 4-->
+            <div class="card card-flush h-xl-100">
+                <!--begin::Header-->
+                <div class="card-header pt-5">
+                    <!--begin::Title-->
+                    <div class="card-title d-flex flex-column">
+                        <!--begin::Amount-->
+
+                        <span class="fs-1hx fw-bolder text-dark me-5 lh-5">
+                            <%=total%> Subjects 
+                        </span>
+                        <!--end::Amount-->
+                        <!--begin::Subtitle-->
+                        <span class="text-gray-400 pt-1 fw-bold fs-6"><%=filenumber%> Books available </span>
+                        <!--end::Subtitle-->
+                    </div>
+
+                </div>
+                <div class="card-body pt-2 pb-4 align-items-center col-md-12">
+
+                    <%subject.forEach(function(subject){%>
+                        
+                            <p class="badge rounded-pill bg-light">
+                                <span class="badge badge-primary  rounded-pill" style="border-radius: 10px;">
+                                    <%let character=subject.subject%>
+                                        <%=character[0]%>
+                                </span>
+
+                                <a href="/subject/<%=subject._id%>" style="color: black;">
+                                    <%=subject.subject%>
+                                </a>
+                                <br>
+                               
+                            </p>
+                            <%})%>
+                </div>
+                <!--end::Card body-->
+            </div>
+        </div>
+    </div>
+</div>

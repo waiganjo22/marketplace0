@@ -1,0 +1,47 @@
+<%- include('../partials/header.ejs')%>
+  <div class="container">
+    <div class="row g-0">
+      <br>
+      <hr>
+      <div class="col-lg-6">
+        <%- include('../partials/addbtn.ejs')%>
+          <br><br>
+          <p class="lead">All User</p>
+
+          <br>
+
+          <ul class="list-group">
+            <%members.forEach(function(member){%>
+         
+              <%if(member.edit){%>
+                <p class="lead">Delete User</p>
+                <%}else{%>
+                  <li class="list-group-item">
+                    
+                    <%if(active==member.username){%>
+                      (you)
+                      ,
+                      Account created on <%=moment(member.date).format('MMMM Do YYYY, hh:mm:ss a')%>
+                        <%}else{%>
+                          <span>
+                            <%=member.name %>,
+                          </span>
+                          Account created on <%=moment(member.date).format('MMMM Do YYYY, hh:mm:ss a')%>
+                            <%}%>
+                              <%if(member.admin=='on' ){%>
+                                <span class="text-success"> [Admin]</span>
+                                <%}else{%>
+                                <span class="text-primary"> [Regular]</span>
+
+                                  <%}%>
+                                  </p>
+
+                  </li>
+                  <%}%>
+                    <%})%>
+          </ul>
+
+      </div>
+    </div>
+    <br>
+    <%- include('../partials/footer.ejs')%>

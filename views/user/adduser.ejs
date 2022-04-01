@@ -1,0 +1,48 @@
+<%- include('../partials/header.ejs')%>
+    <main>
+        <section>
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-6">
+                    <p>Add User</p>
+                    <hr>
+                    <form action="/user/add/user" method="post">
+                        <label for="name"></label>
+                        <input type="text" name="name" id="name" class="form-control form-control-sm"
+                            placeholder="First Name..." value="<%= typeof name != 'undefined' ? name : '' %>">
+                        <label for="username"></label>
+                        <input type="text" name="username" id="username" class="form-control form-control-sm"
+                            placeholder="Username.." value="<%= typeof username != 'undefined' ? username : '' %>">
+                        <label for="email"></label>
+                        <input type="email" name="email" id="email" class="form-control form-control-sm"
+                            placeholder="Email.." value="<%= typeof email != 'undefined' ? email : '' %>">
+                        <label for="password"></label>
+                        <input type="password" name="password" id="password" class="form-control form-control-sm"
+                            placeholder="Password" value="<%= typeof email!= 'undefined' ? password : '' %>">
+                        <label for="password2"></label>
+                        <input type="password" name="password2" id="password2" class="form-control form-control-sm"
+                            placeholder="Confirm Password" value="<%= typeof email!= 'undefined' ? password : '' %>">
+                        <label for="admin"></label>
+                        <div class="form-check form-switch">
+                            <label for="admin"></label>
+                            <input class="form-check-input" type="checkbox" id="admin" name="admin">
+                            <label class="form-check-label" for="admin">Admin</label>
+                        </div>
+                        <br>
+                        <div class="">
+                            <a href="/user/view/users" class="btn btn-danger btn-sm col-md-2 py-1">Cancel</a>
+                            <button type="submit" class="btn btn-primary btn-sm col-md-2 py-1">Add</button>
+                        </div>
+                    </form>
+                    <hr>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        document.getElementById('admin').addEventListener('click',()=>{
+            console.log('checked!')
+        })
+    </script>
+
+    <%- include('../partials/footer.ejs')%>

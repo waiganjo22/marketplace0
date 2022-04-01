@@ -1,0 +1,88 @@
+<%- include('../partials/header.ejs')%>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="/style/style.css">
+    <body>
+        <div class="container">
+            <div class="row align-items-center">
+                <section class="pt-4 pt-md-11">
+                    <section class="py-2">
+                        <div class="container">
+                            <!-- students-->
+                            <p>All Students available appear Here</p>
+
+                            <div class="border-bottom border-primary border-2 opacity-1"></div>
+                            <section class="border-bottom">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-10 bg-white">
+                                            <table id="datatable" class="table table-striped" style="width:100%">
+                                               <hr>
+                                                <thead>
+                                                    <tr>
+                                                        <td>Student Name</td>
+                                                        <td>Gender</td>
+                                                        <td>Phone Number</td>
+                                                        <td>Form</td>
+                                                        <td>Location</td>
+                                                        <td>Sponsored</td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <%students.forEach(function(student){%>
+                                                        <tr class="py-1">
+                                                            <td>
+                                                                <a href="/student/edit/<%=student._id%>">
+                                                                    <%=student.studentname%>
+                                                                </a>
+                                                            </td>
+                                                            <td>
+                                                                <%=student.gender%>
+                                                            </td>
+                                                            <td>
+                                                                <%=student.contact%>
+                                                            </td>
+                                                            <td>
+                                                                <%=student.form%>
+                                                            </td>
+                                                            <td>
+                                                                <%=student.location%> County
+                                                            </td>
+                                                            <td>
+                                                                <%if(student.sponsored == 'on' ){%>
+                                                                    <div class="alert alert-success py-1" role="alert">
+                                                                        Sponsored
+                                                                    </div>
+                                                                    <%}else{%>
+                                                                        <div class="alert alert-danger py-1"
+                                                                            role="alert">
+                                                                            Not Sponsored
+                                                                        </div>
+                                                                        <%}%>
+                                                            </td>
+                                                        </tr>
+                                                        <%})%>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div> <!-- / .row -->
+                                </div> <!-- / .container -->
+                            </section>
+                        </div>
+                    </section>
+                </section>
+            </div> <!-- / .row -->
+        </div> <!-- / .container -->
+        <%- include('../partials/footer.ejs')%>
+
+            <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+            <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+            <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script>
+            <script>
+                $(document).ready(function () {
+                    $('#datatable').DataTable();
+                });
+            </script>
+    </body>
+
+    </html>

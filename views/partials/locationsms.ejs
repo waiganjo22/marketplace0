@@ -1,0 +1,73 @@
+<div class="col-md-12">
+<div class="row g-0">
+    
+    <div class="col-md-2"></div>
+    <div class="col-md-4">
+        <div class="col-lg-10" style="border-radius: 10px; opacity: 2;">
+
+            <p class="lead">Send SMS To Specific Location </p>
+            <hr class="col-md-12">
+            <form action="/sms/location/sms" method="post">
+                <select name="location" id="selectschool" required class="form-select form-select-sm">
+                    <option value="-1">--Select Location--</option>
+                    <option value="Laikipia">Laikipia County</option>
+                    <option value="Makueni">Makueni County</option>
+                    <option value="Nairobi">Nairobi County</option>
+                    <option value="Naivasha">Naivasha County</option>
+                    <option value="Other">Other</option>
+
+                </select>
+                <br>
+                <label for="sender"></label>
+                <input type="hidden" name="sender" id="sender" class="form-control form-control-sm" value="<%=sender%>">
+                <br>
+                <textarea name="msgBody" id="Body" class="form-control form-control-sm " placeholder="Message body"
+                    cols="30" rows="3" required></textarea>
+                <br>
+                <button type="submit" class="btn btn-danger lead btn-sm  py-1">Send <i class="fa fa-paper-plane"
+                        aria-hidden="true"></i></button>
+            </form>
+            <hr>
+        </div>
+    </div>
+    <div class="col-md-6">
+                   <!-- Chart History -->
+                   <div class="col-lg-10" style="height: 350px; overflow-x: scroll;">
+                    <hr> 
+                
+                    Chat History: 
+                    <hr>
+                    <br>
+    
+                    <%messages.forEach( function(message){%>
+                        <ul class="list-group">
+                            <li class="list-group-item form-control-sm">
+                                <div class="fw-bold"><%= message.sender%> , <%= moment(message.createdAt).format('MMMM Do YYYY, hh:mm:ss a')%></div>
+                                To: <%= message.location%> , <%school.forEach((school)=>{%>
+                                    <%if(school._id == message.school){%>
+                                        <%=school.schoolName%>
+                                        <%}%>
+                                    <%})%> ,
+                                
+                                <%= message.contact%>
+                                <br>
+                                <% if(message.msgBody){%>
+                                    <%= message.msgBody%>
+                                    <span class="badge bg-primary rounded-pill">1</span>
+                                    <%} else {%>
+                                        Empty Message
+                                       <%}%>
+                                       <br>
+                                       
+                            </li>
+                        </ul>
+                        <br>
+                        <%})%>
+    
+    
+                            <hr>
+                </div>
+    </div>
+</div>
+</div>
+

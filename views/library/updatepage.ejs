@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <%- include('../partials/header.ejs')%>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>Upload <%=subject.subject%> file(s)</p>
+                    <div class="card card-body">
+                        <hr>
+                        <form action="/subject/post-a-file" method="post" class="form-horizontal" enctype="multipart/form-data">
+                            <p> Upload a file</p>
+                            <label for="subject"></label>
+                            <input type="hidden" name="subject" value="<%=subject._id%>">
+                            <label for="file"></label>
+                            <input type="file" name="file" id="file" class="form-control-file form-control-sm py-1">
+
+                            <button type="submit" class="btn btn-primary py-1 btn-sm">Upload</button>
+                        </form>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-12">
+                    <%- include('../partials/lib/admincollection.ejs')%>
+                </div>
+            </div>
+        </div>
+        <br>
+        <%- include('../partials/footer.ejs')%>
+
+</body>
+</html>

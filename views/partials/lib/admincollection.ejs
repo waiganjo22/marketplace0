@@ -1,0 +1,17 @@
+<div class="col-md-12">
+    <div class="card card-body">
+        <ul class="list-group">
+            <hr>
+                <%file.forEach(function(file){%>
+                    <%if(subject._id == file.subject){%>
+                        <li class="list-group-item">
+                            <a href="/subject/download/<%=file.filename%>" target="_blank">
+                                <%=file.filename%>
+                            </a>
+                        </li>
+                        <%}%>
+                            <%})%>
+                         <hr>
+        </ul>
+    </div>
+</div>
